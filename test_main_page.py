@@ -16,4 +16,11 @@ def test_guest_should_see_login_link(browser):
     page.open()
     page.should_be_login_link()
 
+def should_not_be_success_message(browser):
+    link = 's'
+    page = LoginPage(browser, link)
+    page.open()
+    page.is_not_element_prtesent()
+
+
 
