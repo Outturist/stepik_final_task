@@ -1,5 +1,6 @@
 from .base_page import BasePage
 from .locators import ProductPageLoacators
+from .locators import BasePageLocators
 
 
 class ProductPage(BasePage):
@@ -48,3 +49,11 @@ class ProductPage(BasePage):
         link = 'http://selenium1py.pythonanywhere.com/en-gb/accounts/login/'
         url = self.browser.current_url
         assert url == link, f'Login link is {url}, expected {link}'
+
+    def should_not_be_goods_in_the_basket(self):
+        assert self.is_not_element_present(*BasePageLocators.GOODS_IN_THE_BASKET), \
+            "Goods is presented in basket, but should not be"
+
+    def should_be_text_your_basket_is_empty(self):
+        assert self.is_element_present(*BasePageLocators.YOUR_BASKET_IS_EMPTY_TEXT), \
+            'Text "Your basket is empty" absent in basket, but should be'

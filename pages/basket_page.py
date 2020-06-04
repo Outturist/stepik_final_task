@@ -1,10 +1,7 @@
 from .base_page import BasePage
 from .locators import BasePageLocators
 
-
-class MainPage(BasePage):
-    def __init__(self, *args, **kwargs):
-        super(MainPage, self).__init__(*args, **kwargs)
+class BasketPage(BasePage):
 
     def should_not_be_goods_in_the_basket(self):
         assert self.is_not_element_present(*BasePageLocators.GOODS_IN_THE_BASKET), \
@@ -13,3 +10,4 @@ class MainPage(BasePage):
     def should_be_text_your_basket_is_empty(self):
         assert self.is_element_present(*BasePageLocators.YOUR_BASKET_IS_EMPTY_TEXT), \
             'Text "Your basket is empty" absent in basket, but should be'
+
